@@ -35,7 +35,7 @@ console.log(myModule.myFunction());
 
 
 const myPromise = new Promise((resolve, reject) => {
-  const condition = true; // Try false too
+  const condition = true; 
   if (condition) {
     resolve('Success!');
   } else {
@@ -48,3 +48,18 @@ myPromise.then((result) => {
 }).catch((error) => {
   console.log(error);
 });
+
+const myPromises = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('Success!'), 1000);
+});
+
+async function myFunction() {
+  try {
+    const result = await myPromises;
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+myFunction();
